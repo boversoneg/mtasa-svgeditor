@@ -37,15 +37,6 @@ guiWindowSetSizable(editor.gui.typeSelect, false)
 editor.gui.typeSquare = guiCreateCheckBox(0.05, 0.45, 0.17, 0.2, 'Rectangle', true, true, editor.gui.typeSelect)
 editor.gui.typeCircle = guiCreateCheckBox(0.27, 0.45, 0.13, 0.2, 'Circle', false, true, editor.gui.typeSelect)
 
-editor.isMouseIn = function(x, y, w, h)
-    if not isCursorShowing() then return false end
-
-    local cx, cy = getCursorPosition()
-    cx, cy = cx * sx, cy * sy
-
-    return ((cx >= x and cx <= x + w) and (cy >= y and cy <= y + h))
-end
-
 editor.createRawDataUsingArguments = function(...)
     local args = {...}
     local data = editor.generator.tags
@@ -127,7 +118,7 @@ editor.renderPreview = function()
     dxDrawText('Preview', sx * 0.64, sy * 0.1, sx * 0.65, sy * 0.1, tocolor(255, 255, 255), 5, 'default-bold')
     dxDrawImage(editor.previewPos[1], editor.previewPos[2], editor.previewPos[3], editor.previewPos[4], editor.svg)
 
-    if editor.isMouseIn(editor.previewPos[1], editor.previewPos[2], editor.previewPos[3], editor.previewPos[4]) and getKeyState('mouse1') then 
+    if isMouseInPosition(editor.previewPos[1], editor.previewPos[2], editor.previewPos[3], editor.previewPos[4]) and getKeyState('mouse1') then 
         local cx, cy = getCursorPosition()
         cx, cy = cx * sx, cy * sy
 
