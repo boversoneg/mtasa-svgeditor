@@ -1,6 +1,7 @@
 <meta>
     <info author="bover." version="0.1.0" name="SVG Editor" description="SVG Editor" type="script"/>
 
+    <script src="c_utils.lua" type="client" cache="false" />
     <script src="c_editor.lua" type="client" cache="false" />
     <script src="c_generator.lua" type="client" cache="false" />
 </meta>
