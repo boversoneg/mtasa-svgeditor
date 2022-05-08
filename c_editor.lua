@@ -7,15 +7,10 @@
 ]]--
 
 local sx, sy = guiGetScreenSize()
-local zoom = 1 
-
-if sx < 1920 then 
-    zoom = math.min(2, 1920/sx)
-end
 
 editor = {}
 editor.svg = nil
-editor.previewPos = {sx/2+300/zoom, sy/2-150/zoom, 200, 200}
+editor.previewPos = {sx * 0.658, sy * 0.4, 200, 200}
 
 editor.gui = {}
 editor.gui.window = guiCreateWindow(0.1, 0.25, 0.3, 0.6, 'SVG Editor', true)
