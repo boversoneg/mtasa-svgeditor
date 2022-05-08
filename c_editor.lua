@@ -24,9 +24,11 @@ editor.gui.widthLabel = guiCreateLabel(0.05, 0.07, 0.3, 0.05, 'Width:', true, ed
 editor.gui.heightLabel = guiCreateLabel(0.05, 0.161, 0.3, 0.05, 'Height:', true, editor.gui.window)
 editor.gui.roundLabel = guiCreateLabel(0.05, 0.252, 0.3, 0.05, 'Round radius:', true, editor.gui.window)
 editor.gui.editRound = guiCreateEdit(0.05, 0.28, 0.3, 0.05, 40, true, editor.gui.window)
-editor.gui.editColor = guiCreateEdit(0.65, 0.1, 0.3, 0.05, '#000000', true, editor.gui.window)
-editor.gui.colorLabel = guiCreateLabel(0.65, 0.07, 0.3, 0.05, 'Shape fill color:', true, editor.gui.window)
+editor.gui.editColor = guiCreateEdit(0.55, 0.1, 0.3, 0.05, '#000000', true, editor.gui.window)
+editor.gui.colorLabel = guiCreateLabel(0.55, 0.07, 0.3, 0.05, 'Shape fill color:', true, editor.gui.window)
 editor.gui.rawDataMemo = guiCreateMemo(0.05, 0.37, 0.9, 0.45, '', true, editor.gui.window)
+editor.gui.colorPickerButton = guiCreateButton(0.85, 0.1, 0.065, 0.05, '', true, editor.gui.window)
+editor.gui.colorPickerIcon = guiCreateStaticImage(0.2, 0.15, 0.6, 0.7, 'icon.png', true, editor.gui.colorPickerButton)
 
 editor.gui.typeSelect = guiCreateWindow(0.1, 0.1, 0.3, 0.1, 'Select type of SVG', true)
 guiWindowSetMovable(editor.gui.typeSelect, false)
@@ -174,6 +176,8 @@ editor.guiClick = function(btn)
 
                 editor.updateSVG()
             end
+        elseif source == editor.gui.colorPickerButton or source == editor.gui.colorPickerIcon then 
+
         end
     end
 end 

@@ -3,4 +3,6 @@
 
     <script src="c_editor.lua" type="client" cache="false" />
     <script src="c_generator.lua" type="client" cache="false" />
+
+    <file src="icon.png" />
 </meta>
