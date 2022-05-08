@@ -31,7 +31,7 @@ addEventHandler('onClientRender', root, someRender)
 - [ ]  Possibility to set color of SVG with color picker
 - [ ]  SVG ring generator
 - [ ]  Incomplete circle/ring (Circle progress)
-- [ ]  Live visible changes
+- [ ]  Live changes
 ## Contributing
 
 Contributions are always welcome!
