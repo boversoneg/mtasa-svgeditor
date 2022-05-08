@@ -27,6 +27,7 @@ addEventHandler('onClientRender', root, someRender)
 - [ ]  Background generator
 - [ ]  Fully automatic SVG generator
 - [ ]  SVG circle generator
+- [ ]  Support for rounding only 1, 2 or 3 corners, not always 4
 ## Contributing
 
 Contributions are always welcome!
