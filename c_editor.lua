@@ -34,8 +34,8 @@ editor.gui.rawDataMemo = guiCreateMemo(0.05, 0.37, 0.9, 0.45, '', true, editor.g
 editor.gui.typeSelect = guiCreateWindow(0.1, 0.1, 0.3, 0.1, 'Select type of SVG', true)
 guiWindowSetMovable(editor.gui.typeSelect, false)
 guiWindowSetSizable(editor.gui.typeSelect, false)
-editor.gui.typeSquare = guiCreateCheckBox(0.05, 0.45, 0.13, 0.2, 'Square', true, true, editor.gui.typeSelect)
-editor.gui.typeCircle = guiCreateCheckBox(0.23, 0.45, 0.13, 0.2, 'Circle', false, true, editor.gui.typeSelect)
+editor.gui.typeSquare = guiCreateCheckBox(0.05, 0.45, 0.17, 0.2, 'Rectangle', true, true, editor.gui.typeSelect)
+editor.gui.typeCircle = guiCreateCheckBox(0.27, 0.45, 0.13, 0.2, 'Circle', false, true, editor.gui.typeSelect)
 
 editor.isMouseIn = function(x, y, w, h)
     if not isCursorShowing() then return false end
