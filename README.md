@@ -28,6 +28,7 @@ addEventHandler('onClientRender', root, someRender)
 - [x]  Fully automatic SVG generator
 - [ ]  SVG circle generator
 - [ ]  Support for rounding only 1, 2 or 3 corners, not always 4
+- [ ]  Possibility to set color of SVG with color picker
 ## Contributing
 
 Contributions are always welcome!
