@@ -25,7 +25,7 @@ addEventHandler('onClientRender', root, someRender)
 - [x]  Support for raw data preview
 - [ ]  Rounding rectangles
 - [ ]  Background generator
-- [ ]  Fully automatic SVG generator
+- [x]  Fully automatic SVG generator
 - [ ]  SVG circle generator
 - [ ]  Support for rounding only 1, 2 or 3 corners, not always 4
 ## Contributing
