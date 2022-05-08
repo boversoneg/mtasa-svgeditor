@@ -1,0 +1,4 @@
+<meta>
+    <script src="c_editor.lua" type="client" cache="false" />
+    <script src="c_svgs.lua" type="client" cache="false" />
+</meta>
