@@ -24,6 +24,8 @@ editor.gui.widthLabel = guiCreateLabel(0.05, 0.07, 0.3, 0.05, 'Width:', true, ed
 editor.gui.heightLabel = guiCreateLabel(0.05, 0.161, 0.3, 0.05, 'Height:', true, editor.gui.window)
 editor.gui.roundLabel = guiCreateLabel(0.05, 0.252, 0.3, 0.05, 'Round radius:', true, editor.gui.window)
 editor.gui.editRound = guiCreateEdit(0.05, 0.28, 0.3, 0.05, 40, true, editor.gui.window)
+editor.gui.editColor = guiCreateEdit(0.65, 0.1, 0.3, 0.05, '#000000', true, editor.gui.window)
+editor.gui.colorLabel = guiCreateLabel(0.65, 0.07, 0.3, 0.05, 'Shape fill color:', true, editor.gui.window)
 editor.gui.rawDataMemo = guiCreateMemo(0.05, 0.37, 0.9, 0.45, '', true, editor.gui.window)
 
 editor.gui.typeSelect = guiCreateWindow(0.1, 0.1, 0.3, 0.1, 'Select type of SVG', true)
@@ -45,7 +47,7 @@ editor.createRawDataUsingArguments = function(...)
     local args = {...}
     local data = editor.generator.tags
     if args[1] == 'square' then 
-        local w, h, round = args[2], args[3], args[4]
+        local w, h, round, color = args[2], args[3], args[4], args[5]
 
         local openTag = string.sub(data, 0, -8)
         openTag = openTag ..' '..editor.generator.svgArgs..'>'
@@ -53,10 +55,10 @@ editor.createRawDataUsingArguments = function(...)
         local closeTag = string.sub(data, -6)
         
         data = openTag..'\n'..editor.generator.roundedSquare..'\n'..closeTag
-        data = string.format(data, w, h, w, h, w, h, round)
+        data = string.format(data, w, h, w, h, w, h, round, color)
         return data
     elseif args[1] == 'circle' then
-        local radius = args[2]
+        local radius, color = args[2], args[3]
 
         local openTag = string.sub(data, 0, -8)
         openTag = openTag ..' '..editor.generator.circleSVGArgs..'>'
@@ -64,7 +66,7 @@ editor.createRawDataUsingArguments = function(...)
         local closeTag = string.sub(data, -6)
         
         data = openTag..'\n'..editor.generator.circle..'\n'..closeTag
-        data = string.format(data, radius * 2, radius * 2, radius, radius, radius)
+        data = string.format(data, radius * 2, radius * 2, radius, radius, radius, color)
         return data
     end 
 end 
@@ -75,7 +77,8 @@ editor.updateSVG = function()
         local width = tonumber(guiGetText(editor.gui.editWidth))
         local height = tonumber(guiGetText(editor.gui.editHeight))
         local round = tonumber(guiGetText(editor.gui.editRound))
-        local rawData = editor.createRawDataUsingArguments(type, width, height, round)
+        local color = tostring(guiGetText(editor.gui.editColor))
+        local rawData = editor.createRawDataUsingArguments(type, width, height, round, color)
 
         editor.previewPos[3] = width
         editor.previewPos[4] = height
@@ -84,7 +87,8 @@ editor.updateSVG = function()
         editor.svg = svgCreate(width, height, rawData)
     elseif type == 'circle' then
         local radius = tonumber(guiGetText(editor.gui.editRadius))
-        local rawData = editor.createRawDataUsingArguments(type, radius)
+        local color = tostring(guiGetText(editor.gui.editColor))
+        local rawData = editor.createRawDataUsingArguments(type, radius, color)
 
         editor.previewPos[3] = radius * 2
         editor.previewPos[4] = radius * 2
