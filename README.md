@@ -23,7 +23,7 @@ addEventHandler('onClientRender', root, someRender)
 
 - [x]  Rounding squares
 - [x]  Support for raw data preview
-- [ ]  Rounding rectangles
+- [x]  Rounding rectangles
 - [ ]  Background generator
 - [x]  Fully automatic SVG generator
 - [x]  SVG circle generator
