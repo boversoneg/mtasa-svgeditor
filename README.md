@@ -32,6 +32,7 @@ addEventHandler('onClientRender', root, someRender)
 - [ ]  SVG ring generator
 - [ ]  Incomplete circle/ring (Circle progress)
 - [ ]  Live changes
+- [ ]  Support for creating multi shapes (eg. one circle and one rectangle on one SVG)
 ## Contributing
 
 Contributions are always welcome!
