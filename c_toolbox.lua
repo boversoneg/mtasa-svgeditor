@@ -48,7 +48,7 @@ function createToolboxBackground()
     svgCreate(totalToolboxWidth, totalToolboxHeight, formattedSVG, function(texture)
         cache.toolboxBackgroundTexture = texture
     end)
-end 
+end
 
 function renderToolbox()
     if (not cache.toolboxInitialized) then initializeToolbox(); return false end
@@ -65,15 +65,26 @@ function renderToolbox()
         local iconWidth, iconHeight = dxGetMaterialSize(toolData.icon)
         currentX = currentX + itemGap
 
-        dxDrawImage(currentX, toolboxY + (toolboxH / 2) - (iconHeight / 2), iconWidth, iconHeight, toolData.icon, 0, 0, 0, tocolor(230, 230, 230, 255))
+        local toolBoxColor = (cache.currentTool == toolKey) and tocolor(255, 255, 255, 255) or tocolor(190, 190, 190, 255)
+        dxDrawImage(currentX, toolboxY + (toolboxH / 2) - (iconHeight / 2), iconWidth, iconHeight, toolData.icon, 0, 0, 0, toolBoxColor)
+
+        if (click(currentX, toolboxY + (toolboxH / 2) - (iconHeight / 2), iconWidth, iconHeight)) then
+            if (not cache.tools[cache.currentTool]) then return false end
+            if (cache.currentTool == toolKey) then return false end
+            
+            cache.currentTool = toolKey
+            cache.dragStartPosition = nil
+            cache.dragEndPosition = nil
+        end
 
         currentX = currentX + iconWidth
     end
-end 
+end
 
 function initializeToolbox()
     if (cache.toolboxInitialized) then return false end
 
     createToolboxBackground()
     cache.toolboxInitialized = true 
+    cache.currentTool = 'cursor'
 end 

@@ -7,6 +7,10 @@
     <script src="c_settings.lua" type="client" cache="false" />
     <script src="c_viewbox.lua" type="client" cache="false" />
     <script src="c_toolbox.lua" type="client" cache="false" />
+    <script src='c_layersManager.lua' type='client' cache='false'/>
+
+        <!-- TOOLS -->
+        <script src='tools/c_rectanglesManager.lua' type='client' cache='false'/>
 
     <!-- TEXTURES -->
     <file src="files/textures/*.png" />
